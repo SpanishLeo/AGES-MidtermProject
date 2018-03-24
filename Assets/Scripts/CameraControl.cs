@@ -11,6 +11,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField]
     private float m_MinSize = 6.5f;
 
+    //[HideInInspector]
     public Transform[] m_Targets;
 
     private Camera m_Camera;
@@ -40,6 +41,13 @@ public class CameraControl : MonoBehaviour
     }
 
 
+    private void Zoom()
+    {
+        float requiredSize = FindRequiredSize();
+        m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
+    }
+
+
     private void FindAveragePosition()
     {
         Vector3 averagePos = new Vector3();
@@ -60,13 +68,6 @@ public class CameraControl : MonoBehaviour
         averagePos.y = transform.position.y;
 
         m_DesiredPosition = averagePos;
-    }
-
-
-    private void Zoom()
-    {
-        float requiredSize = FindRequiredSize();
-        m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
     }
 
 
