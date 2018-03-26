@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
 
-    private BoxCollider boxCollider;            // Reference to the capsule collider.
+    private BoxCollider boxCollider;            // Reference to the box collider.
     private bool isDead;                                // Whether the enemy is dead.
     private bool isSinking;                             // Whether the enemy has started sinking through the floor.
 

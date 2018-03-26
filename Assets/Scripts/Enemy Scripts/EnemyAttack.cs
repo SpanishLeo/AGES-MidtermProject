@@ -9,12 +9,11 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField]
     private int attackDamage = 10;               // The amount of health taken away per attack.
 
-
-    GameObject player;                          // Reference to the player GameObject.
-    PlayerHealth playerHealth;                  // Reference to the player's health.
-    EnemyHealth enemyHealth;                    // Reference to this enemy's health.
-    bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
-    float timer;                                // Timer for counting up to the next attack.
+    private GameObject player;                          // Reference to the player GameObject.
+    private PlayerHealth playerHealth;                  // Reference to the player's health.
+    private EnemyHealth enemyHealth;                    // Reference to this enemy's health.
+    private bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
+    private float timer;                                // Timer for counting up to the next attack.
 
 
     void Awake()

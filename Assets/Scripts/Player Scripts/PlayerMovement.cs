@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 10;
     [SerializeField]
     private float turnDeadzone = 0.3f;
-    [SerializeField]
-    private int playerNumber = 1;
+
+    [HideInInspector]
+    public int playerNumber = 1;
 
 
     private Rigidbody playerRigidbody;
@@ -85,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
         // Store the value of the movement inputs.
         horizontalInput = Input.GetAxis(horizontalInputName);
         verticalInput = Input.GetAxis(verticalInputName);
-
     }
 
     private void FixedUpdate()

@@ -10,10 +10,11 @@ public class PlayerShooting : MonoBehaviour
     private float timeBetweenBullets = 0.15f;       // The time between each shot.
     [SerializeField]
     private float range = 100f;                     // The distance the gun can fire.
-    [SerializeField]
-    private int playerNumber = 1;                 // Used to identify the different players.
 
-    private string fireButton;                            // The input axis that is used for shooting.
+    [HideInInspector]
+    public int playerNumber = 1;                 // Used to identify the different players.
+
+    private string fireInputName;                            // The input axis that is used for shooting.
     private float timer;                                    // A timer to determine when to fire.
     private Ray shootRay;                                   // A ray from the gun end forwards.
     private RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
@@ -24,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
     private Light gunLight;                                 // Reference to the light component.
     private float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
 
-    void Awake()
+    private void Start()
     {
         // Create a layer mask for the Shootable layer.
         shootableMask = LayerMask.GetMask("Shootable");
@@ -34,12 +35,9 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
-    }
 
-    private void Start()
-    {
         // The fire axis is based on the player number.
-        fireButton = "Fire" + playerNumber;
+        fireInputName = "Fire" + playerNumber;
     }
 
     void Update()
@@ -48,7 +46,7 @@ public class PlayerShooting : MonoBehaviour
         timer += Time.deltaTime;
 
         // If the fire button is being press and it's time to fire...
-        if (Input.GetButton(fireButton) && timer >= timeBetweenBullets)
+        if (Input.GetButton(fireInputName) && timer >= timeBetweenBullets)
         {
             // ... shoot the gun.
             Shoot();

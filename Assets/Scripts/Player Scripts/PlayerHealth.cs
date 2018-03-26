@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
-    private int startingHealth = 100;                            // The amount of health the player starts the game with.
+    private int startingHealth = 100;                           // The amount of health the player starts the game with.
     [SerializeField]
-    private Slider healthSlider;                                 // Reference to the UI's health bar.
+    private Slider healthSlider;                                // Reference to the UI's health bar.
     [SerializeField]
-    private Image fillImage;                                   // The image component of the slider.
+    private Image fillImage;                                    // The image component of the slider.
     [SerializeField]
     private Color fullHealthColor = Color.green;
     [SerializeField]
     private Color zeroHealthColor = Color.red;
 
     private PlayerMovement playerMovement;                              // Reference to the player's movement.
-    //PlayerShooting playerShooting;                                      // Reference to the PlayerShooting script.
+    private PlayerShooting playerShooting;                                      // Reference to the PlayerShooting script.
     private bool isDead;                                                // Whether the player is dead.
     private bool damaged;                                               // True when the player gets damaged.
 
@@ -25,19 +25,18 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;                                           // The current health the player has.
 
 
-    void Awake()
+    void Start()
     {
-        currentHealth = startingHealth;         // Set the initial health of the player.
-
         playerMovement = GetComponent<PlayerMovement>();
-        //playerShooting = GetComponentInChildren<PlayerShooting>();
+        playerShooting = GetComponentInChildren<PlayerShooting>();
 
+        currentHealth = startingHealth;         // Set the initial health of the player.
     }
 
     private void OnEnable()
     {
-        currentHealth = startingHealth;
-        isDead = false;
+        //currentHealth = startingHealth;
+        //isDead = false;
 
         // Update the health slider's value and color.
         SetHealthUI();
@@ -76,10 +75,10 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
 
         // Turn off any remaining shooting effects.
-        //playerShooting.DisableEffects();
+        playerShooting.DisableEffects();
 
         // Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
-        //playerShooting.enabled = false;
+        playerShooting.enabled = false;
     }
 }

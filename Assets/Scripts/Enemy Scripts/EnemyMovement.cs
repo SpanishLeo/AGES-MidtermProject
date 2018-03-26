@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform player;               // Reference to the player's position.
-    PlayerHealth playerHealth;              // Reference to the player's health.
-    EnemyHealth enemyHealth;                // Reference to this enemy's health.
+    private PlayerHealth playerHealth;              // Reference to the player's health.
+    private EnemyHealth enemyHealth;                // Reference to this enemy's health.
     private NavMeshAgent nav;               // Reference to the nav mesh agent.
 
+    [HideInInspector]
+    public int playerNumber = 1;                 // Used to identify the different players.
 
     void Awake()
     {
