@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
-    private int startingHealth = 100;                           // The amount of health the player starts the game with.
+    private int startingPlayerHealth = 100;                     // The amount of health the player starts the game with.
     [SerializeField]
     private Slider healthSlider;                                // Reference to the UI's health bar.
     [SerializeField]
@@ -16,13 +16,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Color zeroHealthColor = Color.red;
 
-    private PlayerMovement playerMovement;                              // Reference to the player's movement.
-    private PlayerShooting playerShooting;                                      // Reference to the PlayerShooting script.
-    private bool isDead;                                                // Whether the player is dead.
-    private bool damaged;                                               // True when the player gets damaged.
-
     [HideInInspector]
-    public float currentHealth;                                           // The current health the player has.
+    public int currentPlayerHealth;                             // The current health the player has.
+
+    private PlayerMovement playerMovement;                      // Reference to the player's movement.
+    private PlayerShooting playerShooting;                      // Reference to the PlayerShooting script.
+    private bool isDead;                                        // Whether the player is dead.
+    private bool damaged;                                       // True when the player gets damaged.
+
 
 
     void Start()
@@ -30,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerShooting = GetComponentInChildren<PlayerShooting>();
 
-        currentHealth = startingHealth;         // Set the initial health of the player.
+        currentPlayerHealth = startingPlayerHealth;         // Set the initial health of the player.
     }
 
     private void OnEnable()
@@ -46,13 +47,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         // Reduce current health by the amount of damage done.
-        currentHealth -= amount;
+        currentPlayerHealth -= amount;
 
         // Change the UI elements appropriately.
         SetHealthUI();
 
         // If the current health is at or below zero and it has not yet been registered, call Death.
-        if (currentHealth <= 0f && !isDead)
+        if (currentPlayerHealth <= 0f && !isDead)
         {
             Death();
         }
@@ -62,10 +63,10 @@ public class PlayerHealth : MonoBehaviour
     private void SetHealthUI()
     {
         // Set the slider's value appropriately.
-        healthSlider.value = currentHealth;
+        healthSlider.value = currentPlayerHealth;
 
         // Interpolate the color of the bar between the choosen colours based on the current percentage of the starting health.
-        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, currentHealth / startingHealth);
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, currentPlayerHealth / startingPlayerHealth);
     }
 
 

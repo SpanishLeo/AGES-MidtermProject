@@ -573,12 +573,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c244b92c2a213c458291da097100192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingPlayerHealth: 100
   healthSlider: {fileID: 114432837115649520}
   fillImage: {fileID: 114456291065711666}
   fullHealthColor: {r: 0, g: 1, b: 0, a: 1}
   zeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  currentHealth: 0
+  currentPlayerHealth: 0
 --- !u!114 &114640172333500566
 MonoBehaviour:
   m_ObjectHideFlags: 1

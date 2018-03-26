@@ -9,19 +9,24 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField]
     private int attackDamage = 10;               // The amount of health taken away per attack.
 
-    private GameObject player;                          // Reference to the player GameObject.
-    private PlayerHealth playerHealth;                  // Reference to the player's health.
-    private EnemyHealth enemyHealth;                    // Reference to this enemy's health.
-    private bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
-    private float timer;                                // Timer for counting up to the next attack.
+    private GameObject player;                  // Reference to the player GameObject.
+    private PlayerHealth playerHealth;          // Reference to the player's health.
+    private EnemyHealth enemyHealth;            // Reference to this enemy's health.
+    private bool playerInRange;                 // Whether player is within the trigger collider and can be attacked.
+    private float timer;                        // Timer for counting up to the next attack.
 
 
     void Awake()
     {
+
+    }
+
+    private void Start()
+    {
         // Setting up the references.
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<PlayerHealth>(); 
     }
 
 
@@ -53,7 +58,7 @@ public class EnemyAttack : MonoBehaviour
         timer += Time.deltaTime;
 
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentEnemyHealth > 0)
         {
             // ... attack.
             Attack();
@@ -67,7 +72,7 @@ public class EnemyAttack : MonoBehaviour
         timer = 0f;
 
         // If the player has health to lose...
-        if (playerHealth.currentHealth > 0)
+        if (playerHealth.currentPlayerHealth > 0)
         {
             // ... damage the player.
             playerHealth.TakeDamage(attackDamage);

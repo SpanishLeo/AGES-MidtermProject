@@ -6,11 +6,6 @@ using UnityEngine;
 [Serializable]
 public class PlayerManager
 {
-    // This class is to manage various settings on a tank.
-    // It works with the GameManager class to control how the tanks behave
-    // and whether or not players have control of their tank in the 
-    // different phases of the game.
-
     public Material playerColor;        // This is the color this tank will be tinted.
     public Transform spawnPoint;        // The position and direction the tank will have when it spawns.
     [HideInInspector]
@@ -18,7 +13,7 @@ public class PlayerManager
     [HideInInspector]
     public GameObject instance;         // A reference to the instance of the player when it is created.
     [HideInInspector]
-    public int wins;                     // The number of wins this player has so far.
+    public int wins;                    // The number of wins this player has so far.
 
 
     private PlayerMovement movement;                    // Reference to player's movement script, used to disable and enable control.

@@ -6,27 +6,28 @@ using UnityEngine.AI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    private int startingHealth = 100;            // The amount of health the enemy starts the game with.
+    private int startingEnemyHealth = 100;      // The amount of health the enemy starts the game with.
     [SerializeField]
-    private float sinkSpeed = 2.5f;              // The speed at which the enemy sinks through the floor when dead.
+    private float sinkSpeed = 2.5f;             // The speed at which the enemy sinks through the floor when dead.
     [SerializeField]
-    private int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
-
-    private BoxCollider boxCollider;            // Reference to the box collider.
-    private bool isDead;                                // Whether the enemy is dead.
-    private bool isSinking;                             // Whether the enemy has started sinking through the floor.
+    private int scoreValue = 10;                // The amount added to the player's score when the enemy dies.
 
     [HideInInspector]
-    public int currentHealth;                          // The current health the enemy has.
+    public int currentEnemyHealth;              // The current health the enemy has.
+
+    private BoxCollider boxCollider;            // Reference to the box collider.
+    private bool isDead;                        // Whether the enemy is dead.
+    private bool isSinking;                     // Whether the enemy has started sinking through the floor.
 
 
-    void Awake()
+
+    void Start()
     {
         // Setting up the references.
         boxCollider = GetComponent<BoxCollider>();
 
         // Setting the current health when the enemy first spawns.
-        currentHealth = startingHealth;
+        currentEnemyHealth = startingEnemyHealth;
     }
 
     void Update()
@@ -48,10 +49,10 @@ public class EnemyHealth : MonoBehaviour
             return;
 
         // Reduce the current health by the amount of damage sustained.
-        currentHealth -= amount;
+        currentEnemyHealth -= amount;
 
         // If the current health is less than or equal to zero...
-        if (currentHealth <= 0)
+        if (currentEnemyHealth <= 0)
         {
             // ... the enemy is dead.
             Death();
