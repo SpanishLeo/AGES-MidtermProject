@@ -81,7 +81,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.36764705, g: 0.36764705, b: 0.36764705, a: 0}
+  m_BackGroundColor: {r: 0.375, g: 0.3178838, b: 0.19025736, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -126,11 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5c2ac850a30444ab106f73a123e802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DampTime: 0.2
-  m_ScreenEdgeBuffer: 4
-  m_MinSize: 6.5
-  m_Targets:
-  - {fileID: 0}
+  dampTime: 0.2
+  screenEdgeBuffer: 4
+  minSize: 6.5
+  targets: []
 --- !u!124 &124217759629733120
 Behaviour:
   m_ObjectHideFlags: 1
