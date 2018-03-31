@@ -16,7 +16,7 @@ RenderSettings:
   serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_FogMode: 2
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000248, guid: 2d959309c290c554a809a6f06e879d8f,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -4241,7 +4242,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4226993900157178, guid: 350535fb7a1d588428281dde4bc9b72a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -13.44
+      value: 10.06
       objectReference: {fileID: 0}
     - target: {fileID: 4226993900157178, guid: 350535fb7a1d588428281dde4bc9b72a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4249,7 +4250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4226993900157178, guid: 350535fb7a1d588428281dde4bc9b72a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -28.29
+      value: -32.79
       objectReference: {fileID: 0}
     - target: {fileID: 4226993900157178, guid: 350535fb7a1d588428281dde4bc9b72a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10223,7 +10224,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12238
+  m_Name: pb_Mesh70484
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
