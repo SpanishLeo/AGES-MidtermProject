@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -16,12 +17,8 @@ public class GameManager : MonoBehaviour
 
     public PlayerManager[] playerSetup;         // A collection of managers for enabling and disabling different aspects of the players.
 
-    private float restartTimer;                 // Timer to count up to restarting the level
-    //private int roundNumber;                    // Which round the game is currently on.
-    //private WaitForSeconds startWait;           // Used to have a delay whilst the round starts.
-    //private WaitForSeconds endWait;             // Used to have a delay whilst the round or game ends.
-    //private PlayerManager roundWinner;          // Reference to the winner of the current round.  Used to make an announcement of who won.
-    //private PlayerManager gameWinner;           // Reference to the winner of the game.  Used to make an announcement of who won.
+    private int deadPlayerCount = 0;
+    private int totalPlayers;
 
 
     private void Start()
@@ -41,6 +38,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(playerPrefab, playerSetup[i].spawnPoint.position, playerSetup[i].spawnPoint.rotation) as GameObject;
             playerSetup[i].playerNumber = i + 1;
             playerSetup[i].Setup();
+            playerSetup[i].instance.GetComponent<PlayerHealth>().PlayerDied += OnPlayerDied;
         }
     }
 
@@ -62,20 +60,19 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void Update()
+    private void OnPlayerDied()
     {
-        // If the player has run out of health...
-        if (playerHealth.currentPlayerHealth <= 0)
-        {
-            // .. increment a timer to count up to restarting.
-            restartTimer += Time.deltaTime;
+        deadPlayerCount++;
 
-            // .. if it reaches the restart delay...
-            if (restartTimer >= restartDelay)
-            {
-                // .. then reload the currently loaded level.
-                Application.LoadLevel(Application.loadedLevel);
-            }
+        if (deadPlayerCount == totalPlayers)
+        {
+            StartCoroutine(LevelRestartAfterDelay());
         }
+    }
+
+    IEnumerator LevelRestartAfterDelay()
+    {
+        yield return new WaitForSeconds(restartDelay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

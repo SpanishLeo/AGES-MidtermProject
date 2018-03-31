@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public event Action PlayerDied;
+
     [SerializeField]
     private int startingPlayerHealth = 100;                     // The amount of health the player starts the game with.
     [SerializeField]
@@ -81,5 +84,10 @@ public class PlayerHealth : MonoBehaviour
         // Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
+
+        if (PlayerDied != null)
+        {
+            PlayerDied.Invoke();
+        }
     }
 }

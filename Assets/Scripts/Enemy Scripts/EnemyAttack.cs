@@ -15,39 +15,43 @@ public class EnemyAttack : MonoBehaviour
     private bool playerInRange;                 // Whether player is within the trigger collider and can be attacked.
     private float timer;                        // Timer for counting up to the next attack.
 
-
-    void Awake()
-    {
-
-    }
+    private List<GameObject> playerList;
 
     private void Start()
     {
         // Setting up the references.
+        playerList = new List<GameObject>();
         enemyHealth = GetComponent<EnemyHealth>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<PlayerHealth>(); 
+        playerList.Add(GameObject.FindGameObjectWithTag("Player1"));
+        playerList.Add(GameObject.FindGameObjectWithTag("Player2")); 
     }
 
 
     void OnTriggerEnter(Collider other)
     {
-        // If the entering collider is the player...
-        if (other.gameObject == player)
+        foreach (var player in playerList)
         {
-            // ... the player is in range.
-            playerInRange = true;
+            // If the entering collider is the player...
+            if (other.gameObject == player)
+            {
+                // ... the player is in range.
+                playerInRange = true;
+                playerHealth = player.GetComponent<PlayerHealth>();
+            }
         }
     }
 
 
     void OnTriggerExit(Collider other)
     {
-        // If the exiting collider is the player...
-        if (other.gameObject == player)
+        foreach (var player in playerList)
         {
-            // ... the player is no longer in range.
-            playerInRange = false;
+            // If the exiting collider is the player...
+            if (other.gameObject == player)
+            {
+                // ... the player is no longer in range.
+                playerInRange = false;
+            }
         }
     }
 
