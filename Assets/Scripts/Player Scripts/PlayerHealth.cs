@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Color fullHealthColor = Color.green;
     [SerializeField]
-    private Color zeroHealthColor = Color.red;
+    private Color zeroHealthColor = Color.magenta;
 
     [HideInInspector]
     public int currentPlayerHealth;                             // The current health the player has.
