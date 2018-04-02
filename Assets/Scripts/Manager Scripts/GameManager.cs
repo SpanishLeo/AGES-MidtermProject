@@ -7,24 +7,36 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private float restartDelay = 5f;            // Time to wait before restarting the level
+    private float timerDelay = 5f;            // Time to wait before restarting or ending the game.
     [SerializeField]
     public PlayerHealth playerHealth;           // Reference to the player's health.
     [SerializeField]
     private CameraControl cameraControl;        // Reference to the CameraControl script for control during different phases.
+    [SerializeField]
+    private GameObject enemyBoss;         // Reference to the prefab the enemy boss.
     [SerializeField]
     private GameObject playerPrefab;            // Reference to the prefab the players will control.
 
     public PlayerManager[] playerSetup;         // A collection of managers for enabling and disabling different aspects of the players.
 
     private int deadPlayerCount = 0;
-    private int totalPlayers;
+    private int totalPlayers = 2;
+    private EnemyHealth enemyBossHealth;
+
 
 
     private void Start()
     {
+        // Get references to the components.
+        enemyBossHealth = enemyBoss.GetComponent<EnemyHealth>();
+
         SpawnAllPLayers();
         SetCameraTargets();
+    }
+
+    private void FixedUpdate()
+    {
+        GameWon();
     }
 
 
@@ -59,6 +71,19 @@ public class GameManager : MonoBehaviour
         cameraControl.targets = targets;
     }
 
+    private void GameWon()
+    {
+        if (enemyBossHealth.isDead == true)
+        {
+            StartCoroutine(PlayersWin());
+        }
+    }
+
+    IEnumerator PlayersWin()
+    {
+        yield return new WaitForSeconds(timerDelay);
+        SceneManager.LoadScene("End Scene");
+    }
 
     private void OnPlayerDied()
     {
@@ -72,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LevelRestartAfterDelay()
     {
-        yield return new WaitForSeconds(restartDelay);
+        yield return new WaitForSeconds(timerDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

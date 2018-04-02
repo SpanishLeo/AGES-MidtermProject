@@ -10,9 +10,10 @@ public class EnemyHealth : MonoBehaviour
 
     [HideInInspector]
     public int currentEnemyHealth;              // The current health the enemy has.
+    [HideInInspector]
+    public bool isDead;                        // Whether the enemy is dead.
 
     private BoxCollider boxCollider;            // Reference to the box collider.
-    private bool isDead;                        // Whether the enemy is dead.
 
 
 

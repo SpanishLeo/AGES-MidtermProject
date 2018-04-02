@@ -228,8 +228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -527.48926}
-  m_SizeDelta: {x: 780, y: 111.645035}
+  m_AnchoredPosition: {x: 480, y: -543.42}
+  m_SizeDelta: {x: 780, y: 79.78357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278330303
 MonoBehaviour:
@@ -949,8 +949,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -125.10824}
-  m_SizeDelta: {x: 780, y: 120.21648}
+  m_AnchoredPosition: {x: 480, y: -109.177505}
+  m_SizeDelta: {x: 780, y: 88.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &718462534
 MonoBehaviour:
@@ -1059,9 +1059,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.7
-  m_Text: 'SuperShooter
+  m_Text: 'Super Shooter
 
-    3000'
+    9000'
 --- !u!222 &809508137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1411,8 +1411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -534.76196}
-  m_SizeDelta: {x: 780, y: 97.099594}
+  m_AnchoredPosition: {x: 480, y: -543.42}
+  m_SizeDelta: {x: 780, y: 79.78357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992570549
 MonoBehaviour:
@@ -1690,8 +1690,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -328.44162}
-  m_SizeDelta: {x: 780, y: 286.45026}
+  m_AnchoredPosition: {x: 480, y: -328.4416}
+  m_SizeDelta: {x: 780, y: 350.1732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274204169
 MonoBehaviour:
@@ -1725,14 +1725,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Run      Shoot      Survive
-
-
-    Move                Rotate                Shoot
-
-    Left Joystick   Right Joystick   Right Trigger
-
-'
+  m_Text: "The mission is to find and destroy the Evil Node \nThe target is somewhere
+    within the Cybernetica Desert. \nResistance is expected. This won\u2019t be an
+    easy task. \nGood luck.\n\nMove                Rotate                Shoot\n Left
+    Joystick   Right Joystick   Right Trigger"
 --- !u!222 &1274204170
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1844,8 +1840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -112.6407}
-  m_SizeDelta: {x: 780, y: 95.28141}
+  m_AnchoredPosition: {x: 480, y: -109.177505}
+  m_SizeDelta: {x: 780, y: 88.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1453684335
 MonoBehaviour:
@@ -1868,7 +1864,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 60
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
@@ -1918,8 +1914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -323.24677}
-  m_SizeDelta: {x: 780, y: 325.93076}
+  m_AnchoredPosition: {x: 480, y: -328.4416}
+  m_SizeDelta: {x: 780, y: 350.1732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676071117
 MonoBehaviour:
@@ -1964,7 +1960,9 @@ MonoBehaviour:
 
     -Handpainted Lowpoly Gun Pack
 
-    -ProBuilder'
+    -ProBuilder
+
+'
 --- !u!222 &1676071118
 CanvasRenderer:
   m_ObjectHideFlags: 0
